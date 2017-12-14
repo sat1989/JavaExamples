@@ -1,5 +1,5 @@
 FROM java:8
 WORKDIR /
-ADD boot-actuator-demo-0.1.0.jar
+ADD boot-actuator-demo.*jar boot-actuator-demo.jar
 EXPOSE 8080
-CMD java - jar boot-actuator-demo-0.1.0.jar
+CMD java - jar boot-actuator-demo.jar
