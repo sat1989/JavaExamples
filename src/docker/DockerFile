@@ -1,5 +1,5 @@
 # SET OS VERSION
-FROM repo.corp.cox.com:5001/springboot-alpine3.6-jdk1.8.0_151:newrelic-3.4.2
+FROM JAVA
 
 # SET MAINTAINER
 MAINTAINER BSS Shared Platform Engineering - bsspe@cox.com
