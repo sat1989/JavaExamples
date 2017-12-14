@@ -1,0 +1,16 @@
+# SET OS VERSION
+FROM repo.corp.cox.com:5001/springboot-alpine3.6-jdk1.8.0_151:newrelic-3.4.2
+
+# SET MAINTAINER
+MAINTAINER BSS Shared Platform Engineering - bsspe@cox.com
+
+USER root
+WORKDIR /opt/
+RUN adduser -D -u 1000 sboot -h /home/sboot
+ADD boot-actuator-demo-0.1.0*.jar /opt/app.jar
+RUN chown -R sboot:sboot /opt/
+EXPOSE 8080
+
+USER sboot
+RUN sh -c 'touch /opt/app.jar'
+ENTRYPOINT exec java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -javaagent:/opt/newrelic/current -jar /opt/app.jar
